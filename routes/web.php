@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login',[
+    'uses' => 'LoginController@login',
+    'as'   => 'login'
+]);
+
+Route::post('cek-login',[
+    'uses' => 'LoginController@cekLogin',
+    'as'   => 'cek.login' 
+]);
+
 Route::get('cars',[
     'uses'  => 'CarsController@index',
     'as'    => 'cars.index'
@@ -46,6 +56,8 @@ Route::get('cars/{cars}/destroy',[
     'as'    => 'cars.destroy'
 ]);
 
-Route::get('sales', function () {
-	return view('salesTransaction');
-});
+Route::get('sales',[
+    'uses'  => 'SalesController@index',
+    'as'    => 'sales.index'
+]);
+
